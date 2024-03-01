@@ -1,0 +1,24 @@
+.card{
+    cursor: pointer;
+}
+
+.main-container{
+    background-color: #222;
+    border-bottom: solid 4px #000;
+}
+.contact-name-container{
+    color: #fff;
+    text-align: center;
+}
+.contact-description-container{
+    color: #fff;
+    font-size: 2.5rem;
+    text-align: center;
+}
+.contact-number-container{
+    color: #fff;
+    font-size: 2.5rem;
+    text-align: center;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+}

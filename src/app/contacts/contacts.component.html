@@ -1,0 +1,21 @@
+<ul>
+  <li *ngFor="let contactElement of contacts; let i = index">
+    <div class="card" (click)="redirectTo(contactElement.id)">
+      <div class="main-container col-md-8 col-md-offset-2">
+        <div class="contact-name-container">
+          <h2>
+            <strong>{{ contactElement.name }} </strong>
+          </h2>
+        </div>
+        <div class="contact-description-container">
+          <span>{{ contactElement.description }}</span>
+        </div>
+        <div class="contact-number-container">
+          <span>{{ contactElement.phoneNumber }}</span>
+        </div>
+      </div>
+    </div>
+  </li>
+</ul>
+
+<router-outlet></router-outlet>
