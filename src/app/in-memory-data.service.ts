@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Contact } from './contact';
+import { IContact } from './contact';
 import { InMemoryDbService} from 'angular-in-memory-web-api';
 
 @Injectable({
@@ -9,8 +9,8 @@ export class InMemoryDataService implements InMemoryDbService{
   
   createDb(){
     const contacts = [
-      {id:0, name: 'John Doe', description: 'Boss', number: 1111111111},
-      {id:1, name: 'Juan Mata', description: 'Football Player', number: 1122222222}
+      {id:0, name: 'John Doe', description: 'Boss', phoneNumber: 1111111111},
+      {id:1, name: 'Juan Mata', description: 'Football Player', phoneNumber: 1122222222}
     ];
     return {contacts};
   }

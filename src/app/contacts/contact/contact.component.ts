@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
-import { Contact } from '../../contact';
+import { IContact } from '../../contact';
 import { ContactsService } from '../../contacts.service';
 import { InMemoryDataService } from '../../in-memory-data.service';
 
@@ -12,7 +12,7 @@ import { InMemoryDataService } from '../../in-memory-data.service';
 })
 export class ContactComponent implements OnInit {
 
-  contact: Contact;
+  contact: IContact;
 
   constructor(private _ActivatedRoute:ActivatedRoute, private _router:Router, private _ContactsService:ContactsService, private _InMemoryDB:InMemoryDataService) { }
 

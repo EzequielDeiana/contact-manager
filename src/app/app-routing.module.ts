@@ -5,11 +5,8 @@ import { ContactComponent } from './contacts/contact/contact.component';
 
 const routes: Routes = [
     {path:'', redirectTo: '/contacts', pathMatch: 'full'},
-    {path: 'contacts', component: ContactsComponent,
-    children: [
-      {path: 'detail/:id', component: ContactComponent}
-    ]
-  }
+    {path: 'contacts', component: ContactsComponent},
+      {path: 'contacts/detail/:id', component: ContactComponent}
 ];
 
 @NgModule({

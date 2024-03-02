@@ -1,6 +1,6 @@
-export interface Contact{
-    id: number,
-    name: string,
-    description: string,
+export interface IContact{
+    id: number;
+    name: string;
+    description: string;
     phoneNumber: number;
 }

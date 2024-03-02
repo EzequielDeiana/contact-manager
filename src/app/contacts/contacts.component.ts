@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ContactsService } from '../contacts.service';
-import { Contact } from '../contact';
+import { IContact } from '../contact';
 import { Router } from '@angular/router';
 
 
@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class ContactsComponent implements OnInit {
 
-  contacts: Contact[];
+  contacts: IContact[];
   show: boolean = true;
 
   ngOnInit(): void {
