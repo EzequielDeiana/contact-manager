@@ -20,9 +20,12 @@ export class ContactComponent implements OnInit {
     const idParam = this._ActivatedRoute.snapshot.paramMap.get('id');
     if(idParam !== null){
       const id = +idParam;
-      this._ContactsService.getContact(id).subscribe(contact => {
-        this.contact = contact;
-      })
+      this.getContact(id)
     }
   }
+
+  getContact(id: number){
+    this._ContactsService.getContact(id).then(contact => {this.contact = contact})
+  }
+
 }

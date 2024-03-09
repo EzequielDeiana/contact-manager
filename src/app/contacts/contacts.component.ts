@@ -12,26 +12,68 @@ import { Router } from '@angular/router';
 export class ContactsComponent implements OnInit {
 
   contacts: IContact[];
-  show: boolean = true;
 
   ngOnInit(): void {
     this.getContacts();
-    console.log(this.show);
   }
 
-  avaible(){
-    this.show = true;
-  }
-  unavaible(){
-    this.show = false;
-    console.log(this.show);
-  }
-
-  getContacts(){
+  /*getContacts(){
     this._ContactsService.getContacts().subscribe(contacts => {
       this.contacts = contacts;
     });
   }
+  */
+ getContacts(){
+  this._ContactsService.getContacts().then(contacts => {this.contacts = contacts;})
+  .catch(error => { console.error(error);})
+ };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   
   constructor(private _ContactsService: ContactsService, private _router:Router){

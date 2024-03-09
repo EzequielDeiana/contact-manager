@@ -1,3 +1,4 @@
+<div>
 <ul>
   <li *ngFor="let contactElement of contacts; let i = index">
     <div class="card" (click)="redirectTo(contactElement.id)">
@@ -17,5 +18,5 @@
     </div>
   </li>
 </ul>
-
+</div>
 <router-outlet></router-outlet>
