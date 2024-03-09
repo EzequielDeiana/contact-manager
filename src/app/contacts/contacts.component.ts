@@ -17,69 +17,14 @@ export class ContactsComponent implements OnInit {
     this.getContacts();
   }
 
-  /*getContacts(){
-    this._ContactsService.getContacts().subscribe(contacts => {
-      this.contacts = contacts;
-    });
-  }
-  */
- getContacts(){
-  this._ContactsService.getContacts().then(contacts => {this.contacts = contacts;})
-  .catch(error => { console.error(error);})
- };
+  getContacts() {
+    this._contactsService.getContacts().then(contacts => { this.contacts = contacts; })
+      .catch(error => { console.error(error); })
+  };
 
+  constructor(private _contactsService: ContactsService, private _router: Router) { }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  constructor(private _ContactsService: ContactsService, private _router:Router){
-  }
-
-  redirectTo(id: number){
+  redirectTo(id: number) {
     this._router.navigate(['contacts/detail', id]);
   }
 

@@ -1,28 +1,32 @@
-ul{
-    list-style-type: none;
+ul {
+  list-style-type: none;
+  margin-top: 0;
+}
+ul li {
+  margin-top: 0;
+}
 
-}
-.card{
-    cursor: pointer;
+.card {
+  cursor: pointer;
 }
 
-.main-container{
-    background-color: #222;
-    border-bottom: solid 4px #000;
+.main-container {
+  background-color: #222;
+  border-bottom: solid 4px #000;
 }
-.contact-name-container{
-    color: #fff;
-    text-align: center;
+.contact-name-container {
+  color: #fff;
+  text-align: center;
 }
-.contact-description-container{
-    color: #fff;
-    font-size: 2.5rem;
-    text-align: center;
+.contact-description-container {
+  color: #fff;
+  font-size: 2.5rem;
+  text-align: center;
 }
-.contact-number-container{
-    color: #fff;
-    font-size: 2.5rem;
-    text-align: center;
-    margin-top: 3rem;
-    margin-bottom: 2rem;
+.contact-number-container {
+  color: #fff;
+  font-size: 2.5rem;
+  text-align: center;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
 }

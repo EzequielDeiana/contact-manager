@@ -14,18 +14,18 @@ export class ContactComponent implements OnInit {
 
   contact: IContact;
 
-  constructor(private _ActivatedRoute:ActivatedRoute, private _router:Router, private _ContactsService:ContactsService, private _InMemoryDB:InMemoryDataService) { }
+  constructor(private _activatedRoute: ActivatedRoute, private _router: Router, private _contactsService: ContactsService, private _inMemoryDB: InMemoryDataService) { }
 
   ngOnInit(): void {
-    const idParam = this._ActivatedRoute.snapshot.paramMap.get('id');
-    if(idParam !== null){
+    const idParam = this._activatedRoute.snapshot.paramMap.get('id');
+    if (idParam !== null) {
       const id = +idParam;
       this.getContact(id)
     }
   }
 
-  getContact(id: number){
-    this._ContactsService.getContact(id).then(contact => {this.contact = contact})
+  getContact(id: number) {
+    this._contactsService.getContact(id).then(contact => { this.contact = contact })
   }
 
 }

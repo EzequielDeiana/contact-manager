@@ -1,27 +1,39 @@
-.main-container{
-    background-color: #222;
-    border-left: solid 3px #000;
-    border-bottom: solid 3px #000;
-    border-right: solid 3px #000;
+.main-container {
+  background-color: #222;
+  border-left: solid 3px #000;
+  border-bottom: solid 3px #000;
+  border-right: solid 3px #000;
 }
-.contact-name-container{
-    color: #fff;
-    text-align: center;
-    margin-bottom: 50px;
+.contact-name-container {
+  color: #fff;
+  text-align: center;
+  margin-bottom: 50px;
 }
-.contact-name-container span{
-    font-size: 2.5rem;
+.contact-name-container span {
+  font-size: 2.5rem;
 }
-.contact-description-container{
-    color: #fff;
-    font-size: 2.5rem;
-    text-align: center;
-    margin-bottom: 50px;
+.contact-description-container {
+  color: #fff;
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 50px;
 }
-.contact-number-container{
-    color: #fff;
-    font-size: 2.5rem;
-    text-align: center;
-    margin-top: 3rem;
-    margin-bottom: 2rem;
+.contact-number-container {
+  color: #fff;
+  font-size: 2.5rem;
+  text-align: center;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.buttons-container button {
+  font-size: 2rem;
+  margin-left: 25px;
+  margin-right: 25px;
+  margin-bottom: 2rem;
 }
