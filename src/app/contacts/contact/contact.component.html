@@ -1,53 +1,70 @@
 <div class="card">
   <div class="main-container col-md-8 col-md-offset-2">
-    <div class="contact-name-container">
-      <span><strong>Name </strong></span>
-      <h2 [hidden]="isEditMode">{{ contact.name }}</h2>
-      <div class="form-group" [hidden]="!isEditMode">
-        <input
-          type="text"
-          class="form-control"
-          id="name"
-          placeholder="{{ contact.name }}"
-        />
+    <form [formGroup]="contactForm" (ngSubmit)="saveContact()">
+      <div class="contact-name-container">
+        <span><strong>Name </strong></span>
+        <h2 *ngIf="!isEditMode">{{ contact.name }}</h2>
+        <div class="form-group" *ngIf="isEditMode">
+          <input
+            type="text"
+            class="form-control"
+            formControlName="name"
+            placeholder="Name"
+          />
+        </div>
       </div>
-    </div>
-    <div class="contact-description-container">
-      <span>Description: </span>
-      <span [hidden]="isEditMode">{{ contact.description }}</span>
-      <div class="form-group" [hidden]="!isEditMode">
-        <input
-          type="text"
-          class="form-control"
-          id="description"
-          placeholder="{{ contact.description }}"
-        />
+      <div class="contact-description-container">
+        <span>Description: </span>
+        <span *ngIf="!isEditMode">{{ contact.description }}</span>
+        <div class="form-group" *ngIf="isEditMode">
+          <input
+            type="text"
+            class="form-control"
+            formControlName="description"
+            placeholder="Description"
+          />
+        </div>
       </div>
-    </div>
-    <div class="contact-number-container">
-      <span>Number: </span>
-      <span [hidden]="isEditMode">{{ contact.phoneNumber }}</span>
-      <div class="form-group" [hidden]="!isEditMode">
-        <input
-          type="text"
-          class="form-control"
-          id="phoneNumber"
-          placeholder="{{ contact.phoneNumber }}"
-        />
+      <div class="contact-number-container">
+        <span>Number: </span>
+        <span *ngIf="!isEditMode">{{ contact.phoneNumber }}</span>
+        <div class="form-group" *ngIf="isEditMode">
+          <input
+            type="text"
+            class="form-control"
+            formControlName="phoneNumber"
+            placeholder="Phone Number"
+          />
+        </div>
       </div>
-    </div>
-    <div class="buttons-container-default" [hidden]="isEditMode">
-      <button class="btn btn-primary btn-lg btn-edit" type="submit" (click)="changeMode()">
-        Edit
-      </button>
-      <button class="btn btn-danger btn-lg btn-delete" type="submit" (click)="deleteContact(this.contact.id); redirectToContacts()">
-        Delete
-      </button>
-    </div>
-    <div class="buttons-container-edit" [hidden]="!isEditMode">
-      <button class="btn btn-primary btn-lg btn-edit" type="submit" (click)="changeMode()">
-        Send
-      </button>
-    </div>
+      <div class="buttons-container-default" *ngIf="!isEditMode">
+        <button
+          class="btn btn-primary btn-lg btn-edit"
+          type="button"
+          (click)="editContact()"
+        >
+          Edit
+        </button>
+        <button
+          class="btn btn-danger btn-lg btn-delete"
+          type="submit"
+          (click)="deleteContact(this.contact.id); redirectToContacts()"
+        >
+          Delete
+        </button>
+      </div>
+      <div class="buttons-container-edit" *ngIf="isEditMode">
+        <button class="btn btn-primary btn-lg btn-edit" type="submit">
+          Save
+        </button>
+        <button
+          class="btn btn-secondary btn-lg"
+          type="button"
+          (click)="cancelEdit()"
+        >
+          Cancel
+        </button>
+      </div>
+    </form>
   </div>
 </div>

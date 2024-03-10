@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { IContact } from './contact';
 import { InMemoryDbService } from 'angular-in-memory-web-api';
 
 @Injectable({

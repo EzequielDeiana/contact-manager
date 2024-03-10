@@ -53,6 +53,14 @@ export class ContactsService {
       .toPromise();
   }
 
+  searchContacts(term: string): Promise<IContact[]>{
+    if (!term.trim()){
+      return this.getContacts();
+    }
+    return this.http.get<IContact[]>(`${this.contactsUrl}/?name=${term}`)
+    .toPromise();
+  }
+
   constructor(private http: HttpClient) { }
 
   httpOptions = {
