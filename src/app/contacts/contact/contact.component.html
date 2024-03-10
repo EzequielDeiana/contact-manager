@@ -1,21 +1,53 @@
 <div class="card">
-    <div class="main-container col-md-8 col-md-offset-2">
-        <div class="contact-name-container">
-            <span><strong>Name </strong></span>
-            <h2>{{ contact.name }}</h2>
-        </div>
-        <div class="contact-description-container">
-            <span>Description: </span>
-            <span>{{contact.description}}</span>
-        </div>
-        <div class="contact-number-container">
-            <span>Number: </span>
-            <span>{{contact.phoneNumber}}</span>
-        </div>
-        <div class="buttons-container">
-            <button class="btn btn-primary btn-lg btn-edit" type="submit">Edit</button>
-            <button class="btn btn-danger btn-lg btn-delete" type="submit">Delete</button>
-        </div>
-        
+  <div class="main-container col-md-8 col-md-offset-2">
+    <div class="contact-name-container">
+      <span><strong>Name </strong></span>
+      <h2 [hidden]="isEditMode">{{ contact.name }}</h2>
+      <div class="form-group" [hidden]="!isEditMode">
+        <input
+          type="text"
+          class="form-control"
+          id="name"
+          placeholder="{{ contact.name }}"
+        />
+      </div>
     </div>
+    <div class="contact-description-container">
+      <span>Description: </span>
+      <span [hidden]="isEditMode">{{ contact.description }}</span>
+      <div class="form-group" [hidden]="!isEditMode">
+        <input
+          type="text"
+          class="form-control"
+          id="description"
+          placeholder="{{ contact.description }}"
+        />
+      </div>
+    </div>
+    <div class="contact-number-container">
+      <span>Number: </span>
+      <span [hidden]="isEditMode">{{ contact.phoneNumber }}</span>
+      <div class="form-group" [hidden]="!isEditMode">
+        <input
+          type="text"
+          class="form-control"
+          id="phoneNumber"
+          placeholder="{{ contact.phoneNumber }}"
+        />
+      </div>
+    </div>
+    <div class="buttons-container-default" [hidden]="isEditMode">
+      <button class="btn btn-primary btn-lg btn-edit" type="submit" (click)="changeMode()">
+        Edit
+      </button>
+      <button class="btn btn-danger btn-lg btn-delete" type="submit" (click)="deleteContact(this.contact.id); redirectToContacts()">
+        Delete
+      </button>
+    </div>
+    <div class="buttons-container-edit" [hidden]="!isEditMode">
+      <button class="btn btn-primary btn-lg btn-edit" type="submit" (click)="changeMode()">
+        Send
+      </button>
+    </div>
+  </div>
 </div>

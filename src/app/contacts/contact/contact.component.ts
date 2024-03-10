@@ -13,6 +13,7 @@ import { InMemoryDataService } from '../../in-memory-data.service';
 export class ContactComponent implements OnInit {
 
   contact: IContact;
+  isEditMode: boolean = false;
 
   constructor(private _activatedRoute: ActivatedRoute, private _router: Router, private _contactsService: ContactsService, private _inMemoryDB: InMemoryDataService) { }
 
@@ -24,8 +25,24 @@ export class ContactComponent implements OnInit {
     }
   }
 
+  changeMode(){
+    if(this.isEditMode == false){
+      this.isEditMode = true;
+    } else{
+      this.isEditMode = false;
+    }
+  }
+
+  redirectToContacts(){
+    this._router.navigate(['contacts']);
+  }
+
   getContact(id: number) {
     this._contactsService.getContact(id).then(contact => { this.contact = contact })
+  }
+
+  deleteContact(id: number){
+    this._contactsService.deleteContact(id).then((response => {console.log("deleted " + this.contact.id)}))
   }
 
 }

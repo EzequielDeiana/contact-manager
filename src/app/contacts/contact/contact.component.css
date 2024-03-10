@@ -26,14 +26,25 @@
   margin-bottom: 2rem;
 }
 
-.buttons-container {
+.buttons-container-default{
   display: flex;
   justify-content: space-between;
 }
 
-.buttons-container button {
+.buttons-container-default button{
   font-size: 2rem;
   margin-left: 25px;
   margin-right: 25px;
   margin-bottom: 2rem;
+}
+
+.buttons-container-edit {
+  font-size: 2rem;
+  margin-left: 25px;
+  margin-right: 25px;
+  margin-bottom: 2rem;
+}
+
+[hidden]{
+  display: none;
 }
