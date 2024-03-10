@@ -36,3 +36,8 @@ header {
   border: 2px solid #444;
   outline: none;
 }
+
+.btn{
+  margin-left: 10px;
+  margin-bottom: 5px;
+}

@@ -4,7 +4,10 @@
       <span>Contact Manager</span>
     </div>
     <div class="nav-bar">
-      <input type="text" placeholder="Search..." />
+      <form (ngSubmit)="search()">
+        <input type="search" placeholder="Sample" [(ngModel)]="term" name="term"/>
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
     </div>
   </div>
 </header>

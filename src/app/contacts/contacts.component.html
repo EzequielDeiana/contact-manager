@@ -1,3 +1,4 @@
+<app-navbar (searchResult)="updateContacts($event)"></app-navbar>
 <div *ngFor="let contactElement of contacts; let i = index">
     <div class="card" (click)="redirectTo(contactElement.id)">
       <div class="main-container col-md-8 col-md-offset-2">

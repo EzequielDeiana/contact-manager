@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { EventEmitter } from '@angular/core';
+import { IContact } from '../contact';
+import { ContactsService } from '../contacts.service';
 
 @Component({
   selector: 'app-navbar',
@@ -8,7 +11,16 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(private _router: Router) { }
+  @Output() searchResult = new EventEmitter<IContact[]>();
+  term: string = '';
+
+  constructor(private _router: Router, private _contactsService:ContactsService) { }
+
+  search(): void {
+    this._contactsService.searchContacts(this.term)
+    .then(contacts => this.searchResult.emit(contacts))
+    .catch(err => console.error(err));
+  }
 
   ngOnInit(): void {
   }

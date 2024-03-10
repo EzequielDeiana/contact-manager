@@ -22,6 +22,10 @@ export class ContactsComponent implements OnInit {
       .catch(error => { console.error(error); })
   };
 
+  updateContacts(contacts: IContact[]): void {
+    this.contacts = contacts;
+  }
+
   constructor(private _contactsService: ContactsService, private _router: Router) { }
 
   redirectTo(id: number) {
