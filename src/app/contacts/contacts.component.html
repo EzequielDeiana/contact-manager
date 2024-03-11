@@ -1,19 +1,56 @@
 <app-navbar (searchResult)="updateContacts($event)"></app-navbar>
+<form class="form-inline" (ngSubmit)="addContact(inputName.value, description.value, phoneNumber.value)">
+  <div class="main-container col-md-8 col-md-offset-2">
+    <div class="addContactForm">
+      <div class="form-group">
+        <label for="inputName">Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="inputName"
+          placeholder="Example"
+          #inputName
+        />
+      </div>
+      <div class="form-group">
+        <label for="InputDescription">Description</label>
+        <input
+          type="text"
+          class="form-control"
+          id="InputDescription"
+          placeholder="Example"
+          #description
+        />
+      </div>
+      <div class="form-group">
+        <label for="InputPhoneNumber">Phone Number</label>
+        <input
+          type="text"
+          class="form-control"
+          id="InputPhoneNumber"
+          placeholder="111111111"
+          #phoneNumber
+        />
+      </div>
+      <button class="btn btn-outline-success" type="submit">Add</button>
+    </div>
+  </div>
+</form>
 <div *ngFor="let contactElement of contacts; let i = index">
-    <div class="card" (click)="redirectTo(contactElement.id)">
-      <div class="main-container col-md-8 col-md-offset-2">
-        <div class="contact-name-container">
-          <h2>
-            <strong>{{ contactElement.name }} </strong>
-          </h2>
-        </div>
-        <div class="contact-description-container">
-          <span>{{ contactElement.description }}</span>
-        </div>
-        <div class="contact-number-container">
-          <span>{{ contactElement.phoneNumber }}</span>
-        </div>
+  <div class="card" (click)="redirectTo(contactElement.id)">
+    <div class="main-container col-md-8 col-md-offset-2">
+      <div class="contact-name-container">
+        <h2>
+          <strong>{{ contactElement.name }} </strong>
+        </h2>
+      </div>
+      <div class="contact-description-container">
+        <span>{{ contactElement.description }}</span>
+      </div>
+      <div class="contact-number-container">
+        <span>{{ contactElement.phoneNumber }}</span>
       </div>
     </div>
   </div>
+</div>
 <router-outlet></router-outlet>

@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { ContactsService } from '../contacts.service';
 import { IContact } from '../contact';
 import { Router } from '@angular/router';
@@ -24,6 +24,32 @@ export class ContactsComponent implements OnInit {
 
   updateContacts(contacts: IContact[]): void {
     this.contacts = contacts;
+  }
+
+  addContact(name: string, description: string, phoneNumber: string): void {
+    name = name.trim();
+    description = description.trim();
+    phoneNumber = phoneNumber.trim();
+
+    if (!name || !description || !phoneNumber) { return; }
+
+    const phoneNumberAsNumber = parseInt(phoneNumber, 10);
+
+    if (isNaN(phoneNumberAsNumber)) {
+      console.error('Invalid');
+      return;
+    }
+
+    this._contactsService.addContact({ name, description, phoneNumber: phoneNumberAsNumber } as IContact)
+      .then(contact => {
+        this.contacts.push(contact);
+        name = '';
+        description = '';
+        phoneNumber = '';
+        this.redirectTo(contact.id);
+      })
+      .catch(err => console.error(err));
+
   }
 
   constructor(private _contactsService: ContactsService, private _router: Router) { }
